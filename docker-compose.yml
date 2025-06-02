@@ -1,9 +1,10 @@
 services:
   app:
-    image: fake-web:latest
+    image: ghcr.io/pzyyll/fake-web:latest
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    
 

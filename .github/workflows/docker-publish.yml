@@ -4,7 +4,7 @@ name: Docker Publish
 on:
   push:
     tags:
-      - 'v*.*.*' # Push on version tags like v1.0.0
+      - "v*.*.*" # Push on version tags like v1.0.0
   workflow_dispatch: # Allows manual triggering of the workflow
 
 env:
@@ -22,8 +22,8 @@ jobs:
 
     # Grant GITHUB_TOKEN permissions to write to GHCR
     permissions:
-      contents: read      # To checkout the repository
-      packages: write     # Required to push to GitHub Packages (GHCR)
+      contents: read # To checkout the repository
+      packages: write # Required to push to GitHub Packages (GHCR)
       # id-token: write # Optional: For OIDC token if you need to authenticate to other cloud services
 
     steps:
@@ -85,7 +85,7 @@ jobs:
           # Enable Docker layer caching for faster builds using GitHub Actions cache
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          # platforms: linux/amd64,linux/arm64 # Optional: for multi-platform builds
+          platforms: linux/amd64,linux/arm64 # Optional: for multi-platform builds
 
     outputs:
       image_digest: ${{ steps.build-and-push.outputs.digest }}
